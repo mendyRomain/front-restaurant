@@ -1,0 +1,24 @@
+<ngb-tabset  [justify]="currentJustify" style="max-width: 90%;">
+    <ngb-tab>
+        <ng-template ngbTabTitle ><b>Ajouter employé</b> </ng-template>
+      <ng-template ngbTabContent >
+        <p>On ajoute un employé ici</p>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle ><b>Supprimer employé</b> </ng-template>
+      <ng-template ngbTabContent >
+        <p>Ici on supprimera un employé </p>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+        <ng-template ngbTabTitle ><b>Modifier employé</b> </ng-template>
+      <ng-template ngbTabContent>
+        <p>Ici on modifira un employé</p>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>

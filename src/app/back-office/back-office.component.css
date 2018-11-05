@@ -1,0 +1,39 @@
+  h1{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .enTete{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+
+  .contener{
+    display: flex; 
+  }
+ 
+  .navLeft{
+    border-style: solid;
+    border-collapse: collapse;
+    background-color: hsl(194, 31%, 74%); 
+    width:150px; 
+    height: 700px;
+    box-shadow: 6px 6px 20px black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 8px;
+}
+
+.anav{
+  text-align: center;
+}
+
+#buttonMenu{
+  position: absolute;
+  top:  10px;
+  left: 20px;
+}

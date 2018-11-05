@@ -1,0 +1,36 @@
+<mat-toolbar class="enTete" color="primary">
+  <button id="buttonMenu" mat-icon-button (click)="sidenav.toggle()"><mat-icon>apps</mat-icon></button>
+  <h1>{{title}}</h1>
+</mat-toolbar>
+
+
+  <mat-sidenav-container class="example-container" >
+      <mat-sidenav #sidenav mode="side" class="navLeft">
+          <a class="anav" routerLink="/backoffice/employe" (click)="setRole('employe');sidenav.toggle();" >Employé</a><br>
+          <a class="anav" routerLink="/backoffice/food" (click)="setRole('food');sidenav.toggle();">Food</a><br>
+          <a class="anav" href="">Menu</a><br>
+          <a class="anav" href="">Droit</a><br>
+      </mat-sidenav>
+    
+      <mat-sidenav-content   style="height: 700px;">
+        <div [ngSwitch]="role">
+            <app-employe  *ngSwitchCase="'employe'"></app-employe>
+            <app-food  *ngSwitchCase="'food'"></app-food>
+        </div>
+        
+          
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+   
+        <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://mdbootstrap.com/angular/angular-tutorial/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->

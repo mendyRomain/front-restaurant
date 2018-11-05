@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+body { margin: 0; }
+
+.nav-tabs{
+    background-color: hsl(194, 31%, 74%);
+}
+
+.tab-content{
+    padding: 10px;
+}
+
+

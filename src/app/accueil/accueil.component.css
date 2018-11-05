@@ -1,0 +1,36 @@
+.blocButton{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px;
+   
+}
+.button-accueil{
+    min-width: 100px;
+    min-height: 200px;
+    width: 25%;
+    height: 25%;
+    background-color: hsl(194, 31%, 74%);
+    margin: 5px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: lightyellow;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 6px 6px 20px black;
+}
+
+.button-accueil:hover{
+    background:#b0d9e4 no-repeat;
+    box-shadow: 6px 6px 10px black;
+}
+
+h1{
+    text-align: center; 
+
+}
+
