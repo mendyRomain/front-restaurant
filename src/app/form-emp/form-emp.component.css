@@ -1,0 +1,16 @@
+.form-control{
+    width: 300px;
+   
+}
+
+.inputForm{
+    margin-left: 20px;
+}
+
+#contForm{
+    display: flex;
+}
+
+.btnForm{
+    padding-top: 32px;
+}
