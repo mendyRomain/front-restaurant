@@ -6,10 +6,10 @@
 
   <mat-sidenav-container class="example-container" >
       <mat-sidenav #sidenav mode="side" class="navLeft">
-          <a class="anav" routerLink="/backoffice/employe" (click)="setRole('employe');sidenav.toggle();" >Employé</a><br>
-          <a class="anav" routerLink="/backoffice/food" (click)="setRole('food');sidenav.toggle();">Food</a><br>
-          <a class="anav" href="">Menu</a><br>
-          <a class="anav" href="">Droit</a><br>
+          <div class="btnNavBck"><a class="anav" routerLink="/backoffice/employe" (click)="setRole('employe');sidenav.toggle();" >Employé</a><br></div>
+          <div class="btnNavBck"><a class="anav" routerLink="/backoffice/food" (click)="setRole('food');sidenav.toggle();">Food</a><br></div>          
+          <div class="btnNavBck"><a class="anav" href="">Menu</a><br></div>
+          <div class="btnNavBck"><a class="anav" href="">Droit</a><br></div>
       </mat-sidenav>
     
       <mat-sidenav-content   style="height: 700px;">
