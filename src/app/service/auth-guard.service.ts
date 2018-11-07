@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { RestaurantService } from "../service/restaurant.service";
 import { SessionService } from "./session.service";
-import { Validation } from "../validation";
+import { Validation } from "../addClass/validation";
 
 @Injectable()
 export class AuthGard implements CanActivate{

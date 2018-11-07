@@ -6,8 +6,8 @@ import { RestaurantService } from '../service/restaurant.service';
 import { Response } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Connection } from '../connection';
-import { Validation } from '../validation';
+import { Connection } from '../addClass/connection';
+import { Validation } from '../addClass/validation';
 import { SessionService } from '../service/session.service';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 

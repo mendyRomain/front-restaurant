@@ -5,8 +5,8 @@ import { Response } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Boisson } from '../accueil/accueil.component';
 import { MessageService } from './message.service';
-import { Connection } from '../connection';
-import { Validation } from '../validation';
+import { Connection } from '../addClass/connection';
+import { Validation } from '../addClass/validation';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

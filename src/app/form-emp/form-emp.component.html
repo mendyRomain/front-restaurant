@@ -2,36 +2,44 @@
   <div>
     <div class="inputForm">
         <label for="idEmp">id utilisateur :</label>
-        <input type="text" class="form-control" id="idEmp" required>
+        <input type="text" [(ngModel)]="employeForm.idEmploye"  class="form-control" id="idEmp" required>
     </div>
     <div class="inputForm">
         <label for="nom">Nom :</label>
-        <input type="text" class="form-control" id="nom" required>
+        <input type="text"  [(ngModel)]="employeForm.nom" class="form-control" id="nom" required>
     </div>
     <div class="inputForm">
         <label for="prenom">Prenom :</label>
-        <input type="text" class="form-control" id="prenom" required>
+        <input type="text"  [(ngModel)]="employeForm.prenom" class="form-control" id="prenom" required>
     </div>
     <div class="inputForm">
         <label for="dNaiss">Date de naissance :</label>
-        <input type="text" class="form-control" id="dNaiss" required>
+        <input type="text"  [(ngModel)]="employeForm.dateNaissance" class="form-control" id="dNaiss" required>
     </div>
   </div>
   <div>
     <div class="inputForm">
         <label for="dEntre">Date d'entré :</label>
-        <input type="text" class="form-control" id="dEntre" required>
+        <div class="form-group">
+            <div class="input-group">
+              <input class="form-control" id="dEntre" placeholder="yyyy-mm-dd"
+                     name="dp" [(ngModel)]="employeForm.dateEntre" ngbDatepicker #d="ngbDatepicker" required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+              </div>
+            </div>
+          </div>
     </div>
     <div class="inputForm">
         <label for="numSécu">Numéro de sécurité sociale :</label>
-        <input type="text" class="form-control" id="numSecu" required>
+        <input type="text"  [(ngModel)]="employeForm.numSecu" class="form-control" id="numSecu" required>
     </div>
     <div class="inputForm">
         <label for="mdp">Mot de passe :</label>
-        <input type="text" class="form-control" id="mdp" required>
+        <input type="text" [(ngModel)]="employeForm.mdp" class="form-control" id="mdp" required>
     </div>
     <div class="btnForm">
-        <button id="btnEnvoiFormEmp" mat-raised-button color="primary" type="submit" >Envoie</button>
+        <button id="btnEnvoiFormEmp" mat-raised-button color="primary" type="submit" (click)="envoieForm();">Envoie</button>
     </div>
   </div>
   
