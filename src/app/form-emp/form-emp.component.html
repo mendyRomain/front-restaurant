@@ -6,23 +6,29 @@
     </div>
     <div class="inputForm">
         <label for="nom">Nom :</label>
-        <input type="text"  [(ngModel)]="employeForm.nom" class="form-control" id="nom" required>
+        <input type="text"  [(ngModel)]="employeForm.nomEmploye" class="form-control" id="nom" required>
     </div>
     <div class="inputForm">
         <label for="prenom">Prenom :</label>
-        <input type="text"  [(ngModel)]="employeForm.prenom" class="form-control" id="prenom" required>
+        <input type="text"  [(ngModel)]="employeForm.prenomEmploye" class="form-control" id="prenom" required>
     </div>
     <div class="inputForm">
         <label for="dNaiss">Date de naissance :</label>
-        <input type="text"  [(ngModel)]="employeForm.dateNaissance" class="form-control" id="dNaiss" required>
+        <div class="input-group" style="width: 300px">
+            <input class="form-control" id="dNaiss" placeholder="yyyy-mm-dd" style="width: 250px;"
+                   name="dp" [(ngModel)]="employeForm.dateNaissance" ngbDatepicker #d="ngbDatepicker" required>
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+            </div>
+          </div>
     </div>
   </div>
   <div>
     <div class="inputForm">
         <label for="dEntre">Date d'entré :</label>
-        <div class="form-group">
-            <div class="input-group">
-              <input class="form-control" id="dEntre" placeholder="yyyy-mm-dd"
+        <div class="form-group" >
+            <div class="input-group" style="width: 300px">
+              <input class="form-control" id="dEntre" placeholder="yyyy-mm-dd" style="width: 250px;"
                      name="dp" [(ngModel)]="employeForm.dateEntre" ngbDatepicker #d="ngbDatepicker" required>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>

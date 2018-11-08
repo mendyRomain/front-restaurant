@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AddEmployeForm } from '../addClass/addEmployeForm';
+import { RestaurantService } from '../service/restaurant.service'; 
+import { Validation } from '../addClass/validation';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -9,13 +12,20 @@ import { AddEmployeForm } from '../addClass/addEmployeForm';
 })
 export class FormEmpComponent implements OnInit {
   @Input() employeForm= new AddEmployeForm;
-  constructor() { }
+  validation :Validation;
+  constructor( private restaurantService :RestaurantService, private http :HttpClient) { }
   
   ngOnInit() {
   }
 
 
   envoieForm(){
-    console.log("id employe form = "+this.employeForm.dateEntre);
+    console.log(this.employeForm.dateEntre);
+    this.validation= new Validation;
+    this.employeForm.dateNaissance;
+    this.restaurantService.addEmploye(this.employeForm).subscribe(validations => {
+      this.validation=validations;
+      alert("validation= "+this.validation.phrase);
+    });
   }
 }

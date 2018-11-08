@@ -7,6 +7,7 @@ import { Boisson } from '../accueil/accueil.component';
 import { MessageService } from './message.service';
 import { Connection } from '../addClass/connection';
 import { Validation } from '../addClass/validation';
+import { AddEmployeForm } from '../addClass/addEmployeForm';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,6 +27,12 @@ export class RestaurantService {
     );  
      
   }
+
+  addEmploye(employeForm: AddEmployeForm): Observable<any>{
+    return this.http.put<AddEmployeForm>("//localhost:8080/api/addEmploye", employeForm).pipe(
+      catchError(this.handleError("addEmploye", []))
+    );
+  }
   
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -42,7 +49,7 @@ export class RestaurantService {
   }
 /** Log a HeroService message with the MessageService */
 private log(message: string) {
-  this.messageService.add('HeroService: ' + message);
+  this.messageService.add('RestaurantService: ' + message);
 }
 
 }
