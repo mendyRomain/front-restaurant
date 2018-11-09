@@ -3,15 +3,18 @@ export class DateJson{
     month: number;
     day:number;
     
-    constructor(year:number, month:number, day:number){
-        this.year=year;
-        this.month=month;
-        this.day=day;
+    constructor(){
     }
 
-    updateDateJsontoDaTe(){
+    updateDateJsontoDaTe(datetoconvert:any){
         let date = new Date();
-        date.setFullYear(this.year,this.month,this.day);
+        if(null != datetoconvert){
+            this.year=datetoconvert.year;
+            this.month=datetoconvert.month-1;
+            this.day= datetoconvert.day;
+            date.setFullYear(this.year,this.month,this.day);
+        }
+        
         return date;
     }
 }

@@ -13,8 +13,8 @@ import { DateJson } from '../addClass/dateJson';
 })
 export class FormEmpComponent implements OnInit {
   @Input() employeForm= new AddEmployeForm;
-  @Input() dateNaissance:DateJson;
-  @Input() dateEntre:DateJson;
+  @Input() dateNaissance:any;
+  @Input() dateEntre:any;
   validation :Validation;
   constructor( private restaurantService :RestaurantService, private http :HttpClient) { }
   
@@ -22,29 +22,19 @@ export class FormEmpComponent implements OnInit {
   }
 
   testForm(){
-    if(null == this.dateEntre){
-      this.dateEntre= new DateJson(null, null, null);
-      console.log("dans la la condition null");
-    }else{
-      console.log(this.dateEntre.year);
-      this.dateEntre= new DateJson(this.dateEntre.year, this.dateEntre.month,this.dateEntre.day);
-    }
     
-    this.employeForm.dateEntre=this.dateEntre.updateDateJsontoDaTe();
-    console.log(this.employeForm.dateEntre);
+    
+    
   }
 
   envoieForm(){
-    if(null == this.dateNaissance){
-      this.dateNaissance= new DateJson(null, null, null);
-    }
-    console.log(this.employeForm.dateEntre);
-    this.validation= new Validation;
-    this.employeForm.dateEntre=this.dateNaissance.updateDateJsontoDaTe();
-    alert("validation= "+this.employeForm.dateEntre);
+    let dateJsonManager= new DateJson();
+    this.employeForm.dateEntre=dateJsonManager.updateDateJsontoDaTe(this.dateEntre);
+    this.employeForm.dateNaissance= dateJsonManager.updateDateJsontoDaTe(this.dateNaissance);
+    alert("dateEntre= "+this.employeForm.dateEntre+"</br> dateNaissance= "+this.employeForm.dateNaissance);
     this.restaurantService.addEmploye(this.employeForm).subscribe(validations => {
       this.validation=validations;
-      alert("validation= "+this.employeForm.dateEntre);
+      alert("validation= "+this.validation.phrase);
     });
   }
 

@@ -16,9 +16,9 @@
         <label for="dNaiss">Date de naissance :</label>
         <div class="input-group" style="width: 300px">
             <input class="form-control" id="dNaiss" placeholder="yyyy-mm-dd" style="width: 250px;"
-                   name="dp" [(ngModel)]="dateNaissance" ngbDatepicker #d="ngbDatepicker" required>
+                   name="dp" [(ngModel)]="dateNaissance" ngbDatepicker #dateN="ngbDatepicker" required>
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+              <button class="btn btn-outline-secondary calendar" (click)="dateN.toggle()" type="button"></button>
             </div>
           </div>
     </div>
@@ -29,9 +29,9 @@
         <div class="form-group" >
             <div class="input-group" style="width: 300px">
               <input class="form-control" id="dEntre" placeholder="yyyy-mm-dd" style="width: 250px;"
-                     name="dp" [(ngModel)]="dateEntre" ngbDatepicker #d="ngbDatepicker" required>
+                     name="dp" [(ngModel)]="dateEntre" ngbDatepicker #dateE="ngbDatepicker" required>
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                <button class="btn btn-outline-secondary calendar" (click)="dateE.toggle()" type="button"></button>
               </div>
             </div>
           </div>
@@ -45,7 +45,7 @@
         <input type="text" [(ngModel)]="employeForm.mdp" class="form-control" id="mdp" required>
     </div>
     <div class="btnForm">
-        <button id="btnEnvoiFormEmp" mat-raised-button color="primary" type="submit" (click)="testForm();">Envoie</button>
+        <button id="btnEnvoiFormEmp" mat-raised-button color="primary" type="submit" (click)="envoieForm();">Envoie</button>
     </div>
   </div>
   
