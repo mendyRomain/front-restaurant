@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeComponent implements OnInit {
   currentJustify = 'justified';
+  alert={
+    type:"success",
+    message:"test"
+  };
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }

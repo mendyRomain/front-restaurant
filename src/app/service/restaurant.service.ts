@@ -33,6 +33,18 @@ export class RestaurantService {
       catchError(this.handleError("addEmploye", []))
     );
   }
+
+  getDroits(): Observable<any>{
+    return this.http.get("//localhost:8080/api/getDroits").pipe(
+      catchError(this.handleError("getDroits"))
+    );
+  }
+
+  getEmployes(): Observable<any>{
+    return this.http.get("//localhost:8080/api/getEmployes").pipe(
+      catchError(this.handleError("getEmployes"))
+    );
+  }
   
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -48,8 +60,8 @@ export class RestaurantService {
     };
   }
 /** Log a HeroService message with the MessageService */
-private log(message: string) {
-  this.messageService.add('RestaurantService: ' + message);
-}
+  private log(message: string) {
+    this.messageService.add('RestaurantService: ' + message);
+  }  
 
 }

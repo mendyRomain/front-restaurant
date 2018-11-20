@@ -1,52 +1,65 @@
-<div class="form-group" id="contForm">
-  <div>
-    <div class="inputForm">
-        <label for="idEmp">id utilisateur :</label>
-        <input type="text" [(ngModel)]="employeForm.idEmploye"  class="form-control" id="idEmp" required>
-    </div>
-    <div class="inputForm">
-        <label for="nom">Nom :</label>
-        <input type="text"  [(ngModel)]="employeForm.nomEmploye" class="form-control" id="nom" required>
-    </div>
-    <div class="inputForm">
-        <label for="prenom">Prenom :</label>
-        <input type="text"  [(ngModel)]="employeForm.prenomEmploye" class="form-control" id="prenom" required>
-    </div>
-    <div class="inputForm">
-        <label for="dNaiss">Date de naissance :</label>
-        <div class="input-group" style="width: 300px">
-            <input class="form-control" id="dNaiss" placeholder="yyyy-mm-dd" style="width: 250px;"
-                   name="dp" [(ngModel)]="dateNaissance" ngbDatepicker #dateN="ngbDatepicker" required>
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary calendar" (click)="dateN.toggle()" type="button"></button>
-            </div>
-          </div>
-    </div>
-  </div>
-  <div>
-    <div class="inputForm">
-        <label for="dEntre">Date d'entré :</label>
-        <div class="form-group" >
-            <div class="input-group" style="width: 300px">
-              <input class="form-control" id="dEntre" placeholder="yyyy-mm-dd" style="width: 250px;"
-                     name="dp" [(ngModel)]="dateEntre" ngbDatepicker #dateE="ngbDatepicker" required>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="dateE.toggle()" type="button"></button>
-              </div>
-            </div>
-          </div>
-    </div>
-    <div class="inputForm">
-        <label for="numSécu">Numéro de sécurité sociale :</label>
-        <input type="text"  [(ngModel)]="employeForm.numSecu" class="form-control" id="numSecu" required>
-    </div>
-    <div class="inputForm">
-        <label for="mdp">Mot de passe :</label>
-        <input type="text" [(ngModel)]="employeForm.mdp" class="form-control" id="mdp" required>
-    </div>
-    <div class="btnForm">
-        <button id="btnEnvoiFormEmp" mat-raised-button color="primary" type="submit" (click)="envoieForm();">Envoie</button>
-    </div>
-  </div>
-  
+<div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()" >
+            <div class="form-group" id="contForm">
+                    <div>
+                      <div class="inputForm">
+                          <label for="idEmploye">id utilisateur :</label>
+                          <input type="text"  class="form-control" id="idEmploye" formControlName="idEmploye">
+                      </div>
+                      <div class="inputForm">
+                          <label for="nom">Nom :</label>
+                          <input type="text"   class="form-control" id="nom" formControlName="nomEmploye">
+                      </div>
+                      <div class="inputForm">
+                          <label for="prenom">Prenom :</label>
+                          <input type="text"   class="form-control" id="prenom" formControlName="prenomEmploye">
+                      </div>
+                      <div class="inputForm">
+                          <label for="dNaiss">Date de naissance :</label>
+                          <div class="input-group" style="width: 300px">
+                              <input class="form-control" id="dNaiss"  placeholder="yyyy-mm-dd" style="width: 250px;"
+                                     name="dp"  ngbDatepicker #dateN="ngbDatepicker" formControlName="dateNaissance" readonly>
+                              <div class="input-group-append">
+                                <button class="btn btn-outline-secondary calendar" (click)="dateN.toggle()" type="button"></button>
+                              </div>
+                            </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="inputForm">
+                          <label for="dEntre">Date d'entré :</label>
+                          <div class="form-group" >
+                              <div class="input-group" style="width: 300px">
+                                <input class="form-control" id="dEntre" placeholder="yyyy-mm-dd" style="width: 250px;"
+                                       name="dp"  ngbDatepicker #dateE="ngbDatepicker" formControlName="dateEntre" readonly>
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary calendar" (click)="dateE.toggle()" type="button"></button>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="inputForm">
+                          <label for="numSécu">Numéro de sécurité sociale :</label>
+                          <input type="text"   class="form-control" id="numSecu" formControlName="numSecu">
+                      </div>
+                      <div class="inputForm">
+                          <label for="mdp">Mot de passe :</label>
+                          <input type="text" class="form-control" id="mdp" formControlName="mdp">
+                      </div>
+                      <div class="inputForm">
+                            <label for="sel1">Droit :</label>
+                            <select class="form-control" id="droit" formControlName="statutEmp">
+                              <option  [ngValue]="droit" *ngFor="let droit of droits" >{{droit.nomStatut}}</option>
+                            </select>
+                          </div>
+                      <div class="btnForm">
+                          <button id="btnEnvoiFormEmp" mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Envoie</button>
+                      </div>
+                    </div>
+                
+                  </div>
+    </form>
+    
+      
+      
 </div>

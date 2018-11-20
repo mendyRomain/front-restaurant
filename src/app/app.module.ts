@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AccueilComponent } from './accueil/accueil.component';
 import { NgbdModalContent } from './accueil/accueil.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BackOfficeComponent } from './back-office/back-office.component';
 import { RestaurantService } from './service/restaurant.service';
 import { StorageServiceModule} from 'angular-webstorage-service';
@@ -49,6 +49,8 @@ import {
 import { EmployeComponent } from './employe/employe.component';
 import { FoodComponent } from './food/food.component';
 import { FormEmpComponent } from './form-emp/form-emp.component';
+import { ViewSupEmpComponent } from './view-sup-emp/view-sup-emp.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,8 @@ import { FormEmpComponent } from './form-emp/form-emp.component';
     BackOfficeComponent,
     EmployeComponent,
     FoodComponent,
-    FormEmpComponent
+    FormEmpComponent,
+    ViewSupEmpComponent
   ],
   entryComponents:[NgbdModalContent],
   imports: [
@@ -108,9 +111,11 @@ import { FormEmpComponent } from './form-emp/form-emp.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [NgbdModalContent, AuthGard],
+  providers: [NgbdModalContent, AuthGard, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

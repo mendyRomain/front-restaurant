@@ -1,10 +1,17 @@
 export class AddEmployeForm{
-    idEmploye: string;
-	nomEmploye: string;
-	prenomEmploye: string;
-	dateNaissance: Date;
-	dateEntre: Date;
-	dateSortie: Date;
-    numSecu: string;
-	mdp: string;
+	
+	id: number;
+
+	constructor(
+    	public idEmploye: string,
+		public nomEmploye: string,
+		public prenomEmploye: string,
+		public dateNaissance: Date,
+		public dateEntre: Date,
+    	public numSecu: string,
+		public mdp: string,
+		public statutEmp: any,
+		public dateSortie?: Date
+	){}
+
 }
