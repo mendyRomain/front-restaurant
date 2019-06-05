@@ -10,4 +10,9 @@ table {
   td, th {
     width: 25%;
   }
+
+  .dataTableCss{
+    margin-right: 50px;
+    margin-left: 50px;
+  }
   

@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RestaurantService } from '../service/restaurant.service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { AddEmployeForm } from '../addClass/addEmployeForm';
+import { SelectionModel } from '@angular/cdk/collections';
+import { Validation } from '../addClass/validation';
 
 export interface UserData {
   id: string;
@@ -9,6 +12,8 @@ export interface UserData {
   color: string;
 }
 
+const ElementData: AddEmployeForm =null;
+
 @Component({
   selector: 'app-view-sup-emp',
   templateUrl: './view-sup-emp.component.html',
@@ -16,26 +21,42 @@ export interface UserData {
 })
 export class ViewSupEmpComponent implements OnInit {
   employes: any[];
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['select','id', 'nomEmploye', 'prenomEmploye', 'numSecu', "action"];
+  validation : Validation;
+  dataSource: MatTableDataSource<AddEmployeForm>;
+  selection = new SelectionModel<AddEmployeForm>(true, []);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
-  constructor(private restaurantService: RestaurantService) {
-    this.dataSource = new MatTableDataSource(this.employes);
+  constructor(private restaurantService: RestaurantService) {  
   }
 
   ngOnInit() {
     this.getEmploye();
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    
   }
 
   getEmploye(){
-    console.log("dans get EMploye");
+    let emp;
     this.restaurantService.getEmployes().subscribe(employe =>{
       this.employes=employe;
+      emp =employe;
+      console.log(this.employes);
+      this.dataSource= new MatTableDataSource(this.employes);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+    return emp;
+  }
+
+  deleteEmp(row: AddEmployeForm){
+    console.log("la ligna a supprimé =", row);
+    this.restaurantService.deleteEmploye(row).subscribe(validation => {
+      this.validation = validation;
+      console.log("Dans delete employe = ", this.validation.phrase);
+      this.employes=this.getEmploye();
+      this.dataSource = new MatTableDataSource(this.employes);
     })
   }
 
@@ -47,5 +68,18 @@ export class ViewSupEmpComponent implements OnInit {
     }
   }
   
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
+  }
 
 }
+
+

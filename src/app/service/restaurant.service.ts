@@ -45,6 +45,12 @@ export class RestaurantService {
       catchError(this.handleError("getEmployes"))
     );
   }
+
+  deleteEmploye(employeForm: AddEmployeForm): Observable<any>{
+    return this.http.post<AddEmployeForm>("//localhost:8080/api/deleteEmploye", employeForm ).pipe(
+      catchError(this.handleError("deleteEmploye",[]))
+    );
+  }
   
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
